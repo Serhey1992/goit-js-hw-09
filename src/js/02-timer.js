@@ -64,13 +64,13 @@ function convertMs(ms) {
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
-}
+};
 
 function timeInterface({ days, hours, minutes, seconds }) {
-  daysEl.textContent = days;
-  hoursEl.textContent = hours;
-  minutesEl.textContent = minutes;
-  secondsEl.textContent = seconds;
+  daysEl.textContent = addZero(days.toString());
+  hoursEl.textContent = addZero(hours.toString());
+  minutesEl.textContent = addZero(minutes.toString());
+  secondsEl.textContent = addZero(seconds.toString());
 };
 
 
