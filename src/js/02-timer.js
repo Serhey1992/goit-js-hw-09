@@ -17,12 +17,13 @@ const options = {
   defaultDate: Date.now(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-      if (selectedDates[0].getTime() < Date.now()) {
+      deadLine = selectedDates[0].getTime();
+    
+      if (deadLine < Date.now()) {
         alert('Please choose a date in the future')
         startBtnEl.disabled = 'disabled';
       } else {
         startBtnEl.removeAttribute('disabled');
-        deadLine = selectedDates[0].getTime();
       }
   },
 };
@@ -34,7 +35,7 @@ startBtnEl.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
    let intervalId = setInterval(() => {
-    let currentTime = Date.now().getTime();
+    let currentTime = Date.now();
     const timeDifference = deadLine - currentTime;
     const time = convertMs(timeDifference);
     timeInterface(time);
