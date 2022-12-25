@@ -14,11 +14,10 @@ startBtnEl.disabled = 'disabled';
 const options = {
   enableTime: true,
   time_24hr: true,
-  defaultDate: new Date(),
+  defaultDate: Date.now(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.dir(selectedDates[0]);
-      if (selectedDates[0] < new Date()) {
+      if (selectedDates[0].getTime() < Date.now()) {
         alert('Please choose a date in the future')
         startBtnEl.disabled = 'disabled';
       } else {
@@ -35,12 +34,12 @@ startBtnEl.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
    let intervalId = setInterval(() => {
-    let currentTime = new Date().getTime();
+    let currentTime = Date.now().getTime();
     const timeDifference = deadLine - currentTime;
     const time = convertMs(timeDifference);
     timeInterface(time);
     
-    if (timeDifference <= 0) {
+    if (timeDifference < 1000) {
       clearInterval(intervalId);
     }
 
