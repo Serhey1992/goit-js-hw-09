@@ -34,7 +34,7 @@ startBtnEl.addEventListener('click', onStartBtnClick);
 
 
 function onStartBtnClick() {
-  intervalId = setInterval(() => {
+  const intervalId = setInterval(() => {
     let currentTime = new Date().getTime();
     const timeDifference = deadLine - currentTime;
     const time = convertMs(timeDifference);
