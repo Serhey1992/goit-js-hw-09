@@ -6,8 +6,8 @@ const amountEl = document.querySelector('[name="amount"]');
 formEl.addEventListener('submut', onFromSubmit);
 
 
-function onFromSubmit(e) {
-  e.preventDefault();
+function onFromSubmit(evt) {
+  evt.preventDefault();
   let delayPromise = Number(delayEL.value);
 
   for (let i = 0; i < amountEl.value; i += 1) {
@@ -15,8 +15,6 @@ function onFromSubmit(e) {
     delayPromise += Number(stepEl.value);
   }
 }
-
-
 
 
 function onSuccess(result) {
