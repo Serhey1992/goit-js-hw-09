@@ -3,7 +3,7 @@ const delayEL = document.querySelector('[name="delay"]');
 const stepEl = document.querySelector('[name="step"]');
 const amountEl = document.querySelector('[name="amount"]');
 
-formEl.addEventListener('submut', onFromSubmit);
+formEl.addEventListener('submit', onFromSubmit);
 
 
 function onFromSubmit(evt) {
